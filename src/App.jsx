@@ -7,7 +7,6 @@ export default function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/chat" element={<Chat />} />
-      {/* guard if no session */}
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   )
