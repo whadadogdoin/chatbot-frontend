@@ -9,14 +9,12 @@ export default function Chat() {
   const API = import.meta.env.VITE_API_BASE_URL
   const sessionId = localStorage.getItem('sessionId')
 
-  // load history
   useEffect(() => {
     if (!sessionId) return
     axios.get(`${API}/session/${sessionId}/history`)
       .then(res => setHistory(res.data.history))
   }, [sessionId])
 
-  // auto-scroll
   useEffect(() => {
     containerRef.current?.scrollTo(0, containerRef.current.scrollHeight)
   }, [history])
